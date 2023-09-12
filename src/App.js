@@ -9,17 +9,13 @@ function App() {
       <h1>Coder Timer</h1>
       <div className="timer__wrapper">
         <div className="timer__display">
-          <p>{"Your code here"}</p>
+          <p>{formatTime(time)}</p>
         </div>
         <div className="button__wrapper">
           <button className="button" onClick={stopTimer}>
             Stop
           </button>
-          <button
-            className="button"
-            ref={"Your code here"}
-            onClick={startTimer}
-          >
+          <button className="button" ref={active} onClick={startTimer}>
             Start
           </button>
           <button className="button" onClick={resetTimer}>

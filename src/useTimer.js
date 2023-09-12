@@ -3,19 +3,30 @@ import { useState, useRef } from "react";
 const useTimer = (ini = 0) => {
   const [time, setTime] = useState(0);
 
-  const isStart = "Your code here";
-  const active = "Your code here";
-  const refInterval = "Your code here";
+  // Create a ref 'active' to keep track of whether the timer is active or not.
+  const active = useRef(false);
+
+  // Create a ref 'refInterval' to store the interval ID of the timer.
+  const refInterval = useRef(0);
 
   const startTimer = () => {
-    "Your code here";
+    // Set up an interval to increment the 'time' state every second.
+    refInterval.current = setInterval(() => {
+      setTime((time) => time + 1);
+    }, 1000);
+
+    // Disable the 'active' ref to indicate that the timer is active.
     active.current.disabled = true;
   };
+
   const stopTimer = () => {
-    "Your code here";
+    clearInterval(refInterval.current);
+    active.current.disabled = false;
   };
+
   const resetTimer = () => {
-    "Your code here";
+    setTime(0);
+    clearInterval(refInterval.current);
     active.current.disabled = false;
   };
 
