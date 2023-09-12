@@ -1,8 +1,9 @@
 export const formatTime = (time) => {
-  const getSeconds = "Your code here";
-  const minutes = "Your code here";
-  const getMinutes = "Your code here";
-  const getHours = "Your code here";
+  const getSeconds = `0${time % 60}`.slice(-2);
+  const minutes = Math.floor(time / 60);
+  const getMinutes = `0${minutes % 60}`.slice(-2);
+  const hours = Math.floor(minutes / 60);
+  const getHours = `0${hours % 60}`.slice(-2);
 
   return `${getHours} : ${getMinutes} : ${getSeconds}`;
 };
